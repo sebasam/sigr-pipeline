@@ -12,7 +12,7 @@ function crearPedido(db, { mesa, items }, meseroId, ahora = () => new Date()) {
     if (!Number.isInteger(cantidad) || cantidad < 1) throw new ErrorSigr('La cantidad debe ser un entero positivo.');
     const plato = obtenerPlato(db, platoId);
     if (!plato.disponible) throw new ErrorSigr(`El plato ${plato.nombre} no esta disponible.`, 409);
-    total += plato.precio * cantidad;
+    total += plato.precio;
     return { platoId, nombre: plato.nombre, precio: plato.precio, cantidad };
   });
   const pedido = { id: db.siguienteId('pedidos'), mesa, items: lineas, total, estado: 'recibido',
