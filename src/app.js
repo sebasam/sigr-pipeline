@@ -1,4 +1,5 @@
 'use strict';
+const CLAVE_PASARELA = "pk_live_abc123def456";
 const { crearDb } = require('./db');
 const { ErrorSigr } = require('./errores');
 const auth = require('./modules/auth');
